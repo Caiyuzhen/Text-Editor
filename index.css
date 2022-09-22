@@ -1,0 +1,29 @@
+.container {
+	height: 250px; 
+	border:1px solid #ccc;
+}
+
+/* .text-box{
+	height: 100%;
+} */
+
+
+/* .avatar-container {
+	width: 148px;
+} */
+
+
+/* .avatar-inputs {
+	overflow: auto;
+	border: 1px solid #ccc;
+	height: 48px;
+	word-wrap: break-word;
+} */
+
+
+/* 输入框【为空】时显示 placeholder , 输入内容则不显示 placeholder*/
+/* .avatar-inputs:empty:before {
+	content: attr(placeholder);
+	color: rgb(202, 198, 198);
+} */
+
