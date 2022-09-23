@@ -1,30 +1,67 @@
-const container = document.querySelector('.container')
-const textBox = document.querySelectorAll('.text-box')//输入框
-const maxHeight = container.clientHeight// console.log(maxHeight)//获取容器的高度
-// contenteditable
+const container = document.querySelector('.container') //获取外层容器
+// const textBox = document.querySelectorAll('.text-box')//输入框
+const maxWidth = container.clientWidth//外层容器的宽度
+const maxHeight = container.clientHeight//外层容器的高度
+let textBox = document.querySelector('.text-box')//输入框
 
 
-for (var j = 0; j < textBox.length; j++) {
-	const textH = textBox[j]//输入框的高度
+//输入框的初始高度
+let initHeight = textBox.clientHeight
 
 
-	textH.style.fontSize = '12px'//初始字体
+// 思路：把输入框的高度转化为字体大小
+document.addEventListener('DOMContentLoaded', function(){
+	textBox.style.width = `${maxWidth}px`
+	textBox.style.height = `${maxHeight}px`
+})
 
-	// textH.addEventListener('onchange', function(){
-		for (var i = 12; i < maxHeight; i++) {
 
-			// 如果元素本身的高度（offsetHeight）大于了最大高度（maxHeight），就跳出循环
-			if (textH.offsetHeight > maxHeight) {
-				textH.style.fontSize = (i - 2) + 'px'
-				break;
-			} else {
-				//如果没达到最大高度，则字体大小 +1
-				textH.style.fontSize = i + 'px'
-			}
-		}
-		// console.log(textH)
-	// })
-}
+
+textBox.addEventListener('input', function (e) {
+
+	const computedStyle = getComputedStyle(textBox)//先获得输入框最终的数据
+	const changeWidth = computedStyle.width//元素的宽度
+	const Text = e.currentTarget.childNodes[0].nodeValue//元素内的文字内容);
+	console.log(Text);
+	// let fontSize = textBox.clientHeight / initHeight * 16
+	// textBox.style.fontSize = `${fontSize}px`
+	for(var i = initHeight; i <= maxHeight; i++){
+		// 把输入框的高度转化为字体大小
+		textBox.style.fontSize = `${i}px`
+	}
+})
+
+
+
+
+
+// const container = document.querySelector('.container')
+// const textBox = document.querySelectorAll('.text-box')//输入框
+// const maxHeight = container.clientHeight// console.log(maxHeight)//获取容器的高度
+// // contenteditable
+
+
+// for (var j = 0; j < textBox.length; j++) {
+// 	const textH = textBox[j]//输入框的高度
+
+
+// 	textH.style.fontSize = '12px'//初始字体
+
+// 	// textH.addEventListener('onchange', function(){
+// 		for (var i = 12; i < maxHeight; i++) {
+
+// 			// 如果元素本身的高度（offsetHeight）大于了最大高度（maxHeight），就跳出循环
+// 			if (textH.offsetHeight > maxHeight) {
+// 				textH.style.fontSize = (i - 2) + 'px'
+// 				break;
+// 			} else {
+// 				//如果没达到最大高度，则字体大小 +1
+// 				textH.style.fontSize = i + 'px'
+// 			}
+// 		}
+// 		// console.log(textH)
+// 	// })
+// }
 
 
 
