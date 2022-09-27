@@ -1,49 +1,40 @@
-const container = document.querySelector('.container') //获取外层容器
-// const textBox = document.querySelectorAll('.text-box')//输入框
-const maxWidth = container.clientWidth//外层容器的宽度
-const maxHeight = container.clientHeight//外层容器的高度
-let textBox = document.querySelector('.text-box')//输入框
-
-
-//输入框的初始高度
-let initHeight = textBox.clientHeight
-
-
-// 思路：把输入框的高度转化为字体大小
-document.addEventListener('DOMContentLoaded', function(){
-	textBox.style.width = `${maxWidth}px`
-	textBox.style.height = `${maxHeight}px`
-})
+//一边输入一边变小的算法
+let textBox = document.getElementById('textBox');
+textBox.addEventListener('input',function(){
+    let len = this.value.length/1
+    textBox.style.fontSize =  40 * 1/len + 'px'
+},false) //不冒泡
 
 
 
-textBox.addEventListener('input', function (e) {
+// //中文算 2 个，英文算 1 个的做法
+// function TipLen(obj,num){
+// 	let Val = obj.value;//获取输入的value值
+// 	let reg = /^[\u4e00-\u9fa5]{0,}$///定义正则表达式
+// 	let len = 0
 
-	const computedStyle = getComputedStyle(textBox)//先获得输入框最终的数据
-	const changeWidth = computedStyle.width//元素的宽度
-	const Text = e.currentTarget.childNodes[0].nodeValue//元素内的文字内容);
-	console.log(Text);
-	// let fontSize = textBox.clientHeight / initHeight * 16
-	// textBox.style.fontSize = `${fontSize}px`
-	for(var i = initHeight; i <= maxHeight; i++){
-		// 把输入框的高度转化为字体大小
-		textBox.style.fontSize = `${i}px`
-	}
-})
+// 	for(let i = 0; i<Val.length; i++){
+// 		if(reg.test(Val[i])){//如果是中文，则让len+2
+// 			len+=2;
+// 		}else{
+// 			len++;//反之英文len+1
+// 		}
+// 	}
+
+// 	if(len>num){//如果英文和汉字加起来长度超过设定的字符数，截取字数，并提示用户
+// 	   obj.value=Val.substring(0,num);
+// 		// alert("不能输入"+num+'个字')
+// 		return
+// 	}
+// }
 
 
 
 
 
-// const container = document.querySelector('.container')
-// const textBox = document.querySelectorAll('.text-box')//输入框
-// const maxHeight = container.clientHeight// console.log(maxHeight)//获取容器的高度
-// // contenteditable
-
-
+// 🌟_____
 // for (var j = 0; j < textBox.length; j++) {
 // 	const textH = textBox[j]//输入框的高度
-
 
 // 	textH.style.fontSize = '12px'//初始字体
 
@@ -67,7 +58,7 @@ textBox.addEventListener('input', function (e) {
 
 
 
-
+// 🌟_____
 // for(let i = 0; i < 200; i++) {
 // 	if(avatarInputs.height() > maxHeight) {
 // 		avatarInputs.css('font-size', (i - 2) + 'px');
