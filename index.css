@@ -1,11 +1,28 @@
-.container {
+/* .container {
 	height: 250px; 
+	width: 400px;
 	border:1px solid #ccc;
 }
 
-/* .text-box{
-	height: 100%;
+.text-box{
+	/* width: 100%; */
+	/* position: absolute; */
+	/* top: 0; */
+/* } */
+
+.text:empty:before{
+	/* content: 'Hey there';  */
+	content: attr(placeholder);
+    color: rgb(202, 198, 198);
 } */
+
+
+.text:empty:before{
+	content: 'Hey there'; 
+	color: rgb(202, 198, 198);
+}
+
+
 
 
 /* .avatar-container {
