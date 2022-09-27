@@ -8,21 +8,35 @@
 	<link rel="stylesheet" href="./index.css">
 </head>
 <body>
-		
-<!-- 	<div class="container">
-		<div class="text-box">
-			☀️ Hey there
-		</div>
-	</div> -->
-	
-	<div class="container">
+	<!-- <div class="container">
 		<p contenteditable="true" placeholder="Hey there" class="text-box" ></p>
+	</div> -->
+	<div 
+		id="textBox" 
+		style="width: 200px; 
+			   height: 40px; 
+			   background: #e4e5e6;
+			   position: relative;
+			   "
+		>
+		<p 
+			contenteditable="true"
+			class="text" 
+			placeholder="Hey there"
+			style="width: 100%; 
+				   height:100%;
+				   /* white-space:nowrap;  */
+				   overflow:hidden; 
+				   text-overflow:ellipsis;
+				   "
+			
+			></p>
 	</div>
-		
+	<!-- <input 
+	type="text" 
+	id="textBox" 
+	style="font-size: 40px; width: 200px; height: 40px;"
+	/> -->
 	<script src="./index.js"></script>
 </body>
 </html>
-
-
-
-
